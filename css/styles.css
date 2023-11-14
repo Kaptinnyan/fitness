@@ -41,7 +41,24 @@ header img {
     margin: 0 auto;
 }
 
-/* Style rules for navigation area */
+/* Style rules for hamburger menu */
+.mobile-nav a {
+    color:#fff;
+    font-family: "Francois One", sans-serif;
+    text-align: center;
+    font-size: 2em;
+    text-decoration: none;
+    padding: 3%;
+    display: block;
+}
+
+.mobile-nav a.menu-icon {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
 nav {
 	padding: 1%;
     margin-bottom: 1%;
@@ -69,14 +86,15 @@ nav li a {
     text-decoration: none;
 }
 
-/* Show mobil class, hide tablet-desktop class */
+/* Show mobil class, hide tablet-desktop class and menu-links id */
 .mobile {
     display: block;
 }
 
-.tablet-desktop {
+.tablet-desktop, #menu-links {
     display: none;
 }
+
 /* Style rules for main content */
 main {
     clear: left;
@@ -244,7 +262,7 @@ footer p a {
         display: block;
     }
 
-    .mobile {
+    .mobile, .mobile-nav {
         display: none;
     }
 
@@ -309,6 +327,11 @@ footer p a {
     padding: 1% 2%;
 }
 
+.offer:hover {
+    transform: scale(1.25);
+    cursor: pointer;
+}
+
 #exercises dt {
     font-weight: bold;
 }
@@ -316,6 +339,15 @@ footer p a {
 #exercises dd {
     padding: 0.5% 1% 2% 0;
 } 
+
+.viewex {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#example {
+    display: none;
+}
 
 .tel-num {
     font-size: 1.25em;
@@ -361,6 +393,28 @@ form {
     margin: 0 auto;
 }
 
+/* Tablet Viewport: Animation */
+@-webkit-keyframes text-animation {
+    0% { font-size: 1em; }
+    50% { font-size: 2em; }
+    100% { font-size: 1.35; }
+}
+
+@keygrames text-animation {
+    0% { font-size: 1em; }
+    50% { font-size: 2em; }
+    100% { font-size: 1.35em; }
+}
+
+figcaption {
+    -webkit-animation-name: text-animation;
+    animation-name: text-animation;
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+    -webkit-animation-duration: 5s;
+    animation-duration: 5s;
+}
+
 } /* end of tablet media query */
 
 /* Media Query for Desktop Viewport */
@@ -399,6 +453,7 @@ form {
     nav li a:hover {
         color: #000;
         background-color: #fff;
+        transform: scale(1.3);
     }
 
     /* Desktop Viewport: Style RUles for main content */
@@ -426,6 +481,23 @@ form {
     .frame:hover {
         opacity: 1;
         box-shadow: 8px 8px 10px #808080;
+        transform: translateY (10px);
+    }
+
+    @-webkit-keyframes my-animation {
+        0% { opacity: 0;}
+        100% { opacity: 1;}
+    }
+    @keyframes my-animation {
+        0% { opacity: 0;}
+        100% { opacity: 1;}
+    }
+
+    figure {
+        -webkit-animation-duration: 5s;
+        animation-duration: 5s;
+        -webkit-animation-name: my-animation;
+        animation-name: my-animation;
     }
 
     #weights, #cardio, #training {
